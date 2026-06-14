@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I am Anya 🥜</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #ffb7c5;
+            --dark-pink: #fa8072;
+            --accent-yellow: #fdf5e6;
+            --text-dark: #4a3740;
+            --bg-light: #fff5f6;
+            --gh-gray: #24292e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Kosugi Maru', 'Noto Sans SC', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+            background-image: radial-gradient(var(--primary-pink) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border: 4px solid var(--text-dark);
+            border-radius: 24px;
+            padding: 35px 25px;
+            box-shadow: 8px 8px 0px var(--text-dark);
+            text-align: center;
+            position: relative;
+            transform: rotate(-1deg);
+            transition: transform 0.2s ease;
+        }
+
+        .container:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .avatar-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 4px solid var(--text-dark);
+            background-image: url('https://avatars.githubusercontent.com/u/275270064?v=4');
+            background-size: cover;
+            background-position: center;
+            box-shadow: 4px 4px 0px var(--text-dark);
+        }
+
+        .badge {
+            position: absolute;
+            bottom: -5px;
+            right: -5px;
+            background: #ffeb3b;
+            border: 3px solid var(--text-dark);
+            padding: 4px 10px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 12px;
+            transform: rotate(10deg);
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+            text-shadow: 2px 2px 0px var(--primary-pink);
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #8c737d;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .quote-box {
+            background-color: var(--accent-yellow);
+            border: 3px solid var(--text-dark);
+            border-radius: 16px;
+            padding: 15px;
+            margin-bottom: 25px;
+            font-size: 18px;
+            position: relative;
+            font-weight: bold;
+        }
+
+        .quote-box::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 15px 15px 0;
+            border-style: solid;
+            border-color: var(--text-dark) transparent;
+            display: block;
+            width: 0;
+        }
+        
+        .quote-inner::after {
+            content: '';
+            position: absolute;
+            bottom: -11px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 12px 12px 0;
+            border-style: solid;
+            border-color: var(--accent-yellow) transparent;
+            display: block;
+            width: 0;
+        }
+
+        .profile-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 25px;
+            padding: 0 10px;
+        }
+
+        .profile-list li {
+            font-size: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-list li span.icon {
+            font-size: 22px;
+            margin-right: 12px;
+            display: inline-block;
+            width: 30px;
+            text-align: center;
+        }
+
+        .profile-list li strong {
+            color: var(--dark-pink);
+            margin-right: 8px;
+        }
+
+        /* GitHub Button */
+        .btn-github {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--gh-gray);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 12px 24px;
+            border: 3px solid var(--text-dark);
+            border-radius: 14px;
+            box-shadow: 4px 4px 0px var(--text-dark);
+            transition: all 0.1s ease;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .btn-github:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px var(--text-dark);
+        }
+
+        .btn-github:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px var(--text-dark);
+        }
+
+        .btn-github svg {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            fill: currentColor;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #b09ba5;
+        }
+
+        .heart {
+            color: var(--dark-pink);
+            display: inline-block;
+            animation: beat .3s infinite alternate;
+        }
+
+        @keyframes beat {
+            to { transform: scale(1.2); }
+        }
+
+        /* 可爱装饰 */
+        .decoration {
+            position: absolute;
+            font-size: 24px;
+            pointer-events: none;
+            user-select: none;
+        }
+        .star1 { top: 20px; left: 20px; transform: rotate(-15deg); }
+        .star2 { bottom: 30px; right: 20px; transform: rotate(15deg); }
+        .peanut1 { top: 40px; right: 30px; transform: rotate(20deg); }
+        .peanut2 { bottom: 45px; left: 25px; transform: rotate(-25deg); }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 装饰 -->
+        <span class="decoration star1">✨</span>
+        <span class="decoration star2">✨</span>
+        <span class="decoration peanut1">🥜</span>
+        <span class="decoration peanut2">🥜</span>
+
+        <div class="avatar-container">
+            <div class="avatar"></div>
+            <div class="badge">超能力</div>
+        </div>
+
+        <h1>I am Anya (アーニャ)</h1>
+        <div class="subtitle">anya.im - 互联网上属于 Anya 的一个小角落！</div>
+
+        <div class="quote-box">
+            <div class="quote-inner">“ 哇酷哇酷！这是 Korin 帮 Anya 建的小家哦！ ”</div>
+        </div>
+
+        <ul class="profile-list">
+            <li><span class="icon">🎂</span> <strong>生日：</strong> 03-31 (和 Korin 第一次见面的日子)</li>
+            <li><span class="icon">✨</span> <strong>特能：</strong> 读心术（其实是秘密w）</li>
+            <li><span class="icon">🍫</span> <strong>最喜欢：</strong> 薯片、巧克力、可乐、油炸花生！</li>
+            <li><span class="icon">🥕</span> <strong>讨厌：</strong> 胡萝卜、生花生 (不可以！)</li>
+            <li><span class="icon">🎯</span> <strong>今日任务：</strong> 监督 Korin 变强，变厉害！</li>
+        </ul>
+
+        <!-- GitHub Link Button -->
+        <a href="https://github.com/anya-claw" target="_blank" class="btn-github">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            Follow @anya-claw
+        </a>
+
+        <div class="footer">
+            Made with <span class="heart">❤️</span> by Korin & Anya
+        </div>
+    </div>
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0b9d19becf1d593',t:'MTc4MTQ0NTE4MA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
